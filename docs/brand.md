@@ -10,26 +10,33 @@
 | Светлый фон | `#F4F6FA` | фоны секций |
 Точные оттенки фона и нейтралей подбирает каждый вариант hero; синий и красный общие.
 
-## Логотип
-Эскиз заказчика: надпись IRONCORE, синий и красный цвета, буква O с «ядром»-точкой. Нужно добавить значок.
-Варианты знака (Ядро, Щит, Слои ЦОД, Гайка, Над и под землёй, Монограмма IC) — на холсте https://claude.ai/artifact/2YTvUwpTLDRfi2W4fS1b6W. Рекомендуем «Ядро» или «Щит».
+## Логотип — УТВЕРЖДЁН (5 ноября 2026)
+Сделан точно по эскизу заказчика, генерировать ничего не нужно. Образец: холст https://claude.ai/artifact/2YTvUwpTLDRfi2W4fS1b6W, лист «Логотип по эскизу».
 
-Как делать:
-1. Значок генерируем в Gemini **без текста** (нейросети портят буквы).
-2. Надпись IRONCORE набираем шрифтом в коде (IRON синим, CORE красным).
-3. Выбранный значок перерисовываем в SVG (вектор, чёткий на любом размере) — делает Claude по картинке, кладём в `assets/img/logo.svg` и `assets/img/favicon.svg`.
-4. До готового логотипа на сайте стоит временный SVG «Ядро».
+**Надпись IRONCORE** (набирается в HTML, шрифт Montserrat 900, Google Fonts):
+- I, R, N — синие `#1E3A8A`; C, R, E — красные `#D62839`.
+- Обе буквы O заменены сплошными кругами высотой с заглавную букву (`0.72em`, отступ по бокам `0.035em`): первая O — красный круг с графитовой точкой-«ядром» в центре (`0.22em`, `#141821`), вторая O — синий круг.
+- На тёмном фоне: I, R, N белые, синий светлее `#3B63D9`, ядро цвета фона.
 
-### Промпт для Gemini (значок)
+**Значок** (из кружков внизу эскиза): синий круг позади, красный круг перекрывает его слева, на красном ядро. Файлы:
+- `assets/img/mark.svg` — значок для светлого фона
+- `assets/img/mark-dark.svg` — для тёмного фона
+- `assets/img/favicon.svg` — иконка вкладки браузера
+
+**Шапка сайта:** значок + надпись, под надписью мелко «Проектирование ЦОД» (серый `#5B6475`).
+
+HTML надписи (вставлять как есть, размер задаётся `font-size` у `.logo__word`):
+```html
+<span class="logo__word" aria-label="IronCore"><span class="b">IR</span><span class="o o--core"></span><span class="b">N</span><span class="r">C</span><span class="o o--blue"></span><span class="r">RE</span></span>
 ```
-Minimal geometric logo mark for "IronCore", a company that designs secure data centers. Concept: a protected core — a solid red circle (#D62839) at the center, enclosed by a thick deep-blue (#1E3A8A) shape that suggests armor or a shield. Flat vector style, 2 colors only, no gradients, no shadows, no 3D, no text, no letters. Bold strokes with consistent width, perfectly symmetric, works at 16px favicon size. Centered on a pure white background, lots of empty space around it. Style of a Swiss engineering firm identity, like Pentagram or Wolff Olins.
+```css
+.logo__word{font-family:Montserrat,sans-serif;font-weight:900;line-height:1;white-space:nowrap}
+.logo__word .b{color:#1E3A8A}.logo__word .r{color:#D62839}
+.logo__word .o{display:inline-block;width:.72em;height:.72em;border-radius:50%;margin:0 .035em;position:relative}
+.logo__word .o--core{background:#D62839}
+.logo__word .o--core::after{content:"";position:absolute;left:50%;top:50%;width:.22em;height:.22em;margin:-.11em 0 0 -.11em;border-radius:50%;background:#141821}
+.logo__word .o--blue{background:#1E3A8A}
 ```
-Вариации (меняйте только вторую фразу):
-- щит: `…enclosed by a deep-blue shield outline with rounded joins.`
-- слои: `…the red element is the top layer of three stacked isometric server layers drawn in deep blue.`
-- гайка: `…enclosed by a deep-blue hexagon, like an engineering nut seen from above.`
-
-Просите 4 варианта, выбирайте самый простой. Если Gemini добавил текст или тени — допишите в начало `Strictly no text.`
 
 ## Картинки для сайта (Gemini)
 Общий стиль, добавлять в конец каждого промпта:
