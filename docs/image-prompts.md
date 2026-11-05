@@ -5,9 +5,9 @@
 
 ## Первый экран (hero)
 
-✅ `hero-a-model` — вариант A, 4:3 (1600×1200)
+✅ `hero-a-model` — вариант A, 16:9, картинка на весь первый экран (макет справа, слева пустой студийный фон под текст). Фон страницы под ней `#D8DFE9`.
 ```
-Photograph of a white architectural scale model of a secure data center, cut in vertical cross-section, standing on a light grey studio table. Above the ground line: a two-storey rectangular concrete building with rooftop cooling units. Below the ground line: a reinforced underground hall with rows of tiny server racks; only the racks in the underground hall are deep red (#D62839), everything else is matte white and pale grey. Soil layers shown as stacked light grey cardboard sheets. On the right: two small shipping-container data center modules on the surface. Soft diffused studio light from the upper left, gentle natural shadows, medium-format camera, 50mm lens, viewed slightly from above at three-quarter angle. Plain light grey background (#E9ECF1). No text, no labels, no people, no glow, no HDR, no lens flare.
+Wide 16:9 studio product photograph of a white architectural scale model of a secure data center, cut in vertical cross-section. The model stands on a seamless infinite light grey-blue paper backdrop (color close to #EEF0F4), no visible horizon line, no table edge, no wall corner. The model is placed in the right half of the frame; the entire left half is empty, evenly lit backdrop. Above ground: a two-storey building with rooftop cooling units and an external staircase. Below ground: a reinforced underground hall with rows of tiny server racks; only the racks are deep red (#D62839), everything else matte white paper and pale grey cardboard. Two small containers on the surface. Soft diffused key light from the upper left, natural soft contact shadow. Medium-format, 80mm, three-quarter view from slightly above. No text, no people, no vignette.
 ```
 
 ✅ `hero-b-night` — вариант B. Gemini сделал кадр с пустой левой половиной; в файле оставлена только правая половина (вертикальная), фон слева на сайте — цвет `#1D283A`, переход градиентом.
